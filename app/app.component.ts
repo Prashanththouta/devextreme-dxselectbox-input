@@ -38,20 +38,21 @@ export class AppComponent {
     );
   }
 
-  InputValueChange(e, name) {
+  InputValueChange(e) {
     this.resetTimer();
     let valueSendToServer = false;
     this.subscription = this.timer$.subscribe(time => {
       if (time > 1 && !valueSendToServer) {
         this.resetTimer();
-        this.selectBoxInstance.toArray().forEach(
-          (instance) => {
-            if(instance.name === name) {
-              // this.getProducts(instance.text);
-              this.Products.splice(0,1);
-            }
-          }
-        )
+        this.Products.splice(0,1);
+        this.Products.push({Name: '10', Id: 'A123'});
+        // this.selectBoxInstance.toArray().forEach(
+        //   (instance) => {
+        //     if(instance.name === name) {
+        //       this.Products.splice(0,1);
+        //     }
+        //   }
+        // )
         valueSendToServer = true;
       }
     });
