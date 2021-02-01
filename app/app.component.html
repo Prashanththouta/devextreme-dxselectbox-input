@@ -1,0 +1,15 @@
+<div *ngFor="let box of boxes">
+  <dx-select-box
+  [dataSource]="Products"
+  displayExpr="Name"
+  valueExpr="Id"
+  [name]="box"
+  (onValueChanged)="ValeChanged($event, box)"
+  (onInput)="InputValueChange($event, box)"
+  [value]="GetValue(box)"
+  [searchEnabled]="true"
+   >
+</dx-select-box>
+   </div>
+
+
